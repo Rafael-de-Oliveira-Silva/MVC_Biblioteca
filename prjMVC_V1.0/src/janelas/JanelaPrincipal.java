@@ -1,0 +1,125 @@
+package janelas;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import controle.CtrlPrograma;
+import java.awt.Color;
+
+public class JanelaPrincipal extends JFrame implements IViewerPrincipal{
+
+	private JPanel contentPane;
+	private CtrlPrograma ctrlPrg;
+
+	/**
+	 * Create the frame.
+	 */
+	public JanelaPrincipal(CtrlPrograma ctrl) {
+		this.ctrlPrg = ctrl;
+		setTitle("Controle de Livros - Versão 1");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 495, 300);
+		contentPane = new JPanel();
+		contentPane.setForeground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.setForeground(Color.RED);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.terminar();
+			}
+		});
+		btnSair.setBounds(164, 185, 193, 66);
+		contentPane.add(btnSair);
+		
+		JButton btnAutor = new JButton("Autores");
+		btnAutor.setForeground(Color.BLUE);
+		btnAutor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAutores();
+			}
+		});
+		btnAutor.setBounds(6, 7, 114, 78);
+		contentPane.add(btnAutor);
+		
+		JButton btnNewButton = new JButton("Alunos");
+		btnNewButton.setForeground(Color.BLUE);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAlunos();
+			}
+		});
+		btnNewButton.setBounds(124, 90, 109, 76);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Assuntos");
+		btnNewButton_1.setForeground(Color.BLUE);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterAssuntos();
+			}
+		});
+		btnNewButton_1.setBounds(7, 89, 114, 78);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Editoras");
+		btnNewButton_2.setForeground(Color.BLUE);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterEditoras();
+			}
+		});
+		btnNewButton_2.setBounds(124, 7, 109, 78);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Empr\u00E9stimos");
+		btnNewButton_3.setForeground(Color.BLUE);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterEmprestimos();
+			}
+		});
+		btnNewButton_3.setBounds(351, 90, 124, 76);
+		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Exemplares");
+		btnNewButton_4.setForeground(Color.BLUE);
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterExemplares();
+			}
+		});
+		btnNewButton_4.setBounds(351, 7, 126, 75);
+		contentPane.add(btnNewButton_4);
+		
+		JButton btnFuncionrios = new JButton("Funcion\u00E1rios");
+		btnFuncionrios.setForeground(Color.BLUE);
+		btnFuncionrios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterFuncionarios();
+			}
+		});
+		btnFuncionrios.setBounds(238, 90, 108, 76);
+		contentPane.add(btnFuncionrios);
+		
+		JButton btnObras = new JButton("Obras");
+		btnObras.setForeground(Color.BLUE);
+		btnObras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterObras();
+			}
+		});
+		btnObras.setBounds(238, 7, 109, 78);
+		contentPane.add(btnObras);
+		
+		this.setVisible(true);
+	}
+}
