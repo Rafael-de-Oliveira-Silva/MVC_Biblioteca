@@ -1,0 +1,214 @@
+package janelas;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import controle.CtrlPrograma;
+import java.awt.Color;
+import javax.swing.JMenu;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JMenuBar;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
+
+public class JanelaPrincipal extends JFrame implements IViewerPrincipal{
+
+	private JPanel contentPane;
+	private CtrlPrograma ctrlPrg;
+
+	/**
+	 * Create the frame.
+	 */
+	public JanelaPrincipal(CtrlPrograma ctrl) {
+		this.ctrlPrg = ctrl;
+		setTitle("Controle de Livros - Versão 1");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 495, 300);
+		contentPane = new JPanel();
+		contentPane.setForeground(Color.WHITE);
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.setForeground(Color.RED);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.terminar();
+			}
+		});
+		btnSair.setBounds(282, 187, 193, 66);
+		contentPane.add(btnSair);
+		
+		JButton btnAutor = new JButton("Autores");
+		btnAutor.setForeground(Color.BLUE);
+		btnAutor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAutores();
+			}
+		});
+		btnAutor.setBounds(133, 187, 114, 24);
+		contentPane.add(btnAutor);
+		
+		JButton btnNewButton = new JButton("Alunos");
+		btnNewButton.setForeground(Color.BLUE);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAlunos();
+			}
+		});
+		btnNewButton.setBounds(361, 64, 109, 24);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Assuntos");
+		btnNewButton_1.setForeground(Color.BLUE);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterAssuntos();
+			}
+		});
+		btnNewButton_1.setBounds(145, 127, 114, 24);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Editoras");
+		btnNewButton_2.setForeground(Color.BLUE);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterEditoras();
+			}
+		});
+		btnNewButton_2.setBounds(138, 96, 109, 24);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Empr\u00E9stimos");
+		btnNewButton_3.setForeground(Color.BLUE);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterEmprestimos();
+			}
+		});
+		btnNewButton_3.setBounds(351, 27, 124, 24);
+		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Exemplares");
+		btnNewButton_4.setForeground(Color.BLUE);
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterExemplares();
+			}
+		});
+		btnNewButton_4.setBounds(145, 154, 126, 24);
+		contentPane.add(btnNewButton_4);
+		
+		JButton btnFuncionrios = new JButton("Funcion\u00E1rios");
+		btnFuncionrios.setForeground(Color.BLUE);
+		btnFuncionrios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterFuncionarios();
+			}
+		});
+		btnFuncionrios.setBounds(361, 96, 108, 24);
+		contentPane.add(btnFuncionrios);
+		
+		JButton btnObras = new JButton("Obras");
+		btnObras.setForeground(Color.BLUE);
+		btnObras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterObras();
+			}
+		});
+		btnObras.setBounds(143, 229, 109, 24);
+		contentPane.add(btnObras);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.inactiveCaption);
+		menuBar.setBounds(0, 0, 475, 30);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Cadastro");
+		menuBar.add(mnNewMenu);
+		mnNewMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JMenuItem mntmEditoras = new JMenuItem("Editoras...");
+		mntmEditoras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ctrlPrg.iniciarCasoDeUsoManterEditoras();
+			}
+		});
+		mnNewMenu.add(mntmEditoras);
+		
+		JMenuItem mntmAssuntos = new JMenuItem("Assuntos...");
+		mntmAssuntos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAssuntos();
+			}
+		});
+		mnNewMenu.add(mntmAssuntos);
+		
+		JMenuItem mntmAutores_1 = new JMenuItem("Autores...");
+		mntmAutores_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAutores();
+			}
+		});
+		mnNewMenu.add(mntmAutores_1);
+		
+		JMenuItem mntmExemplares = new JMenuItem("Exemplares...");
+		mntmExemplares.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterExemplares();
+			}
+		});
+		mnNewMenu.add(mntmExemplares);
+		
+		JMenuItem mntmObras = new JMenuItem("Obras...");
+		mnNewMenu.add(mntmObras);
+		
+		JMenu mnOperao = new JMenu("Opera\u00E7\u00E3o");
+		menuBar.add(mnOperao);
+		
+		JMenuItem mntmEmprstimo = new JMenuItem("Empr\u00E9stimo");
+		mntmEmprstimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterEmprestimos();
+			}
+		});
+		mnOperao.add(mntmEmprstimo);
+		
+		JMenu mnManuteno = new JMenu("Manuten\u00E7\u00E3o");
+		menuBar.add(mnManuteno);
+		
+		JMenuItem mntmAlunos = new JMenuItem("Alunos...");
+		mntmAlunos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterAlunos();
+			}
+		});
+		mnManuteno.add(mntmAlunos);
+		
+		JMenuItem mntmFuncionrios = new JMenuItem("Funcion\u00E1rios...");
+		mntmFuncionrios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.iniciarCasoDeUsoManterFuncionarios();
+			}
+		});
+		mnManuteno.add(mntmFuncionrios);
+		
+		JMenu mnEncerrar = new JMenu("Encerrar");
+		mnEncerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ctrlPrg.terminar();
+			}
+		});
+		menuBar.add(mnEncerrar);
+		
+		this.setVisible(true);
+	}
+}

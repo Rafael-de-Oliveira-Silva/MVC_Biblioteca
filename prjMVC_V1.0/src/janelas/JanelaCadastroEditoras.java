@@ -15,6 +15,8 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class JanelaCadastroEditoras extends JFrame implements IViewerCadastroEditoras{
 
@@ -30,17 +32,18 @@ public class JanelaCadastroEditoras extends JFrame implements IViewerCadastroEdi
 	 * Create the frame.
 	 */
 	public JanelaCadastroEditoras(ICtrlManterEditoras ctEditora) {
+		setResizable(false);
 		setTitle("Editoras");
 		this.ctrl = ctEditora;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 677, 333);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 434, 223);
+		scrollPane.setBounds(0, 0, 659, 223);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -53,45 +56,56 @@ public class JanelaCadastroEditoras extends JFrame implements IViewerCadastroEdi
 				"NOME", "CIDADE", "N\u00BA OBRAS"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(200);
-		table.getColumnModel().getColumn(1).setPreferredWidth(163);
-		table.getColumnModel().getColumn(2).setPreferredWidth(70);
+		table.getColumnModel().getColumn(0).setPreferredWidth(270);
+		table.getColumnModel().getColumn(0).setMinWidth(20);
+		table.getColumnModel().getColumn(1).setPreferredWidth(325);
+		table.getColumnModel().getColumn(1).setMinWidth(50);
+		table.getColumnModel().getColumn(2).setPreferredWidth(195);
+		table.getColumnModel().getColumn(2).setMinWidth(20);
 		scrollPane.setViewportView(table);
 		
 		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\floppy_drive_24_h.png"));
+		btnIncluir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnIncluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarIncluir();
 			}
 		});
-		btnIncluir.setBounds(23, 232, 89, 23);
+		btnIncluir.setBounds(23, 240, 150, 40);
 		contentPane.add(btnIncluir);
 		
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\recycle_bin_24.png"));
+		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarExcluir();
 			}
 		});
-		btnExcluir.setBounds(122, 232, 89, 23);
+		btnExcluir.setBounds(185, 240, 150, 40);
 		contentPane.add(btnExcluir);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\edit24_h.png"));
+		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarAlterar();
 			}
 		});
-		btnAlterar.setBounds(221, 232, 89, 23);
+		btnAlterar.setBounds(347, 240, 150, 40);
 		contentPane.add(btnAlterar);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\exit24.png"));
+		btnSair.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarTerminar();
 			}
 		});
-		btnSair.setBounds(320, 232, 89, 23);
+		btnSair.setBounds(509, 240, 150, 40);
 		contentPane.add(btnSair);
 		
 		this.setVisible(true);

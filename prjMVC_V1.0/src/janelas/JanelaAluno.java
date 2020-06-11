@@ -14,6 +14,8 @@ import javax.swing.border.EmptyBorder;
 
 import controle.ICtrlManterAlunos;
 import dados.DadosException;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class JanelaAluno extends JFrame implements IViewerAluno{
 
@@ -40,16 +42,18 @@ public class JanelaAluno extends JFrame implements IViewerAluno{
 	 * Create the frame.
 	 */
 	public JanelaAluno(ICtrlManterAlunos ctAluno) {
+		setResizable(false);
 		setTitle("Aluno");
 		this.ctrl = ctAluno;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 329);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblCpf = new JLabel("CPF:");
+		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblCpf.setBounds(10, 11, 173, 14);
 		contentPane.add(lblCpf);
 		
@@ -60,6 +64,7 @@ public class JanelaAluno extends JFrame implements IViewerAluno{
 		tfCpf.setColumns(10);
 		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNome.setBounds(10, 55, 118, 14);
 		contentPane.add(lblNome);
 		
@@ -70,6 +75,7 @@ public class JanelaAluno extends JFrame implements IViewerAluno{
 		tfNome.setColumns(10);
 		
 		JLabel lblEndereco = new JLabel("Endere\u00E7o:");
+		lblEndereco.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblEndereco.setBounds(10, 100, 173, 14);
 		contentPane.add(lblEndereco);
 		
@@ -80,6 +86,7 @@ public class JanelaAluno extends JFrame implements IViewerAluno{
 		tfEndereco.setColumns(10);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
+		lblTelefone.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblTelefone.setBounds(10, 145, 118, 14);
 		contentPane.add(lblTelefone);
 		
@@ -90,6 +97,7 @@ public class JanelaAluno extends JFrame implements IViewerAluno{
 		tfTelefone.setColumns(10);
 		
 		JLabel lblMatricula = new JLabel("Matricula:");
+		lblMatricula.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblMatricula.setBounds(10, 189, 173, 14);
 		contentPane.add(lblMatricula);
 		
@@ -100,21 +108,25 @@ public class JanelaAluno extends JFrame implements IViewerAluno{
 		tfMatricula.setColumns(10);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnOk.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\tick_24.png"));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				executarOk();
 			}
 		});
-		btnOk.setBounds(55, 236, 143, 23);
+		btnOk.setBounds(55, 236, 150, 40);
 		contentPane.add(btnOk);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnCancelar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\stop24_h.png"));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				executarCancelar();
 			}
 		});
-		btnCancelar.setBounds(238, 236, 154, 23);
+		btnCancelar.setBounds(238, 236, 150, 40);
 		contentPane.add(btnCancelar);
 		
 		this.setVisible(true);

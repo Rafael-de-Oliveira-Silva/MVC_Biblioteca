@@ -15,6 +15,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class JanelaFuncionario extends JFrame implements IViewerFuncionario{
 
@@ -41,16 +43,18 @@ public class JanelaFuncionario extends JFrame implements IViewerFuncionario{
 	 * Create the frame.
 	 */
 	public JanelaFuncionario(ICtrlManterFuncionarios ctFunc) {
+		setResizable(false);
 		setTitle("Funcion\u00E1rio");
 		this.ctrl = ctFunc;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 550, 352);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblCpf = new JLabel("CPF:");
+		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblCpf.setBounds(10, 11, 173, 14);
 		contentPane.add(lblCpf);
 		
@@ -61,6 +65,7 @@ public class JanelaFuncionario extends JFrame implements IViewerFuncionario{
 		contentPane.add(tfCpf);
 		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNome.setBounds(10, 55, 118, 14);
 		contentPane.add(lblNome);
 		
@@ -71,6 +76,7 @@ public class JanelaFuncionario extends JFrame implements IViewerFuncionario{
 		contentPane.add(tfNome);
 		
 		JLabel lblEndereco = new JLabel("Endere\u00E7o:");
+		lblEndereco.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblEndereco.setBounds(10, 100, 173, 14);
 		contentPane.add(lblEndereco);
 		
@@ -81,6 +87,7 @@ public class JanelaFuncionario extends JFrame implements IViewerFuncionario{
 		contentPane.add(tfEndereco);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
+		lblTelefone.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblTelefone.setBounds(10, 145, 118, 14);
 		contentPane.add(lblTelefone);
 		
@@ -91,31 +98,36 @@ public class JanelaFuncionario extends JFrame implements IViewerFuncionario{
 		contentPane.add(tfTelefone);
 		
 		JLabel lblMatFunc = new JLabel("Matricula:");
+		lblMatFunc.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblMatFunc.setBounds(10, 189, 173, 14);
 		contentPane.add(lblMatFunc);
 		
 		tfMatFunc = new JTextField();
 		tfMatFunc.setForeground(Color.BLUE);
 		tfMatFunc.setColumns(10);
-		tfMatFunc.setBounds(10, 208, 86, 20);
+		tfMatFunc.setBounds(10, 203, 86, 20);
 		contentPane.add(tfMatFunc);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\tick_24.png"));
+		btnOk.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				executarOk();
 			}
 		});
-		btnOk.setBounds(55, 236, 143, 23);
+		btnOk.setBounds(93, 236, 143, 38);
 		contentPane.add(btnOk);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\stop24_h.png"));
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				executarCancelar();
 			}
 		});
-		btnCancelar.setBounds(238, 236, 154, 23);
+		btnCancelar.setBounds(313, 236, 154, 38);
 		contentPane.add(btnCancelar);
 		
 		this.setVisible(true);

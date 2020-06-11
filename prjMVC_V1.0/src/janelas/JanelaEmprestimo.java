@@ -18,6 +18,8 @@ import dados.Aluno;
 import dados.DadosException;
 import dados.Exemplar;
 import dados.Funcionario;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class JanelaEmprestimo extends JFrame implements IViewerEmprestimo{
 
@@ -46,42 +48,46 @@ public class JanelaEmprestimo extends JFrame implements IViewerEmprestimo{
 	 * Create the frame.
 	 */
 	public JanelaEmprestimo(ICtrlManterEmprestimos ctEmp, Object[] funcionarios, Object[] alunos, Object[] exemplares) {
+		setResizable(false);
 		setTitle("Empr\u00E9stimo");
 		this.ctrl = ctEmp;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 523, 343);
+		setBounds(100, 100, 523, 417);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblDataEmp = new JLabel("Data:");
+		lblDataEmp.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblDataEmp.setBounds(9, 8, 169, 14);
 		contentPane.add(lblDataEmp);
 		
 		tfDataEmp = new JTextField();
 		tfDataEmp.setForeground(Color.BLUE);
-		tfDataEmp.setBounds(9, 23, 86, 20);
+		tfDataEmp.setBounds(9, 23, 101, 20);
 		contentPane.add(tfDataEmp);
 		tfDataEmp.setColumns(10);
 		
 		JLabel lblHora = new JLabel("Hora:");
-		lblHora.setBounds(9, 44, 86, 14);
+		lblHora.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblHora.setBounds(161, 8, 86, 14);
 		contentPane.add(lblHora);
 		
 		tfHora = new JTextField();
 		tfHora.setForeground(Color.BLUE);
 		tfHora.setColumns(10);
-		tfHora.setBounds(9, 57, 86, 20);
+		tfHora.setBounds(161, 23, 86, 20);
 		contentPane.add(tfHora);
 		
 		JLabel lblAluno = new JLabel("Aluno:");
-		lblAluno.setBounds(10, 80, 100, 14);
+		lblAluno.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblAluno.setBounds(10, 56, 100, 14);
 		contentPane.add(lblAluno);
 		
 		cbAlunos = new JComboBox();
 		cbAlunos.setForeground(Color.BLUE);
-		cbAlunos.setBounds(9, 94, 488, 20);
+		cbAlunos.setBounds(9, 70, 488, 20);
 		contentPane.add(cbAlunos);
 		//
 		// Adicionando os alunos na combobox
@@ -93,7 +99,7 @@ public class JanelaEmprestimo extends JFrame implements IViewerEmprestimo{
 		
 		cbExemplares = new JComboBox();
 		cbExemplares.setForeground(Color.BLUE);
-		cbExemplares.setBounds(9, 131, 488, 20);
+		cbExemplares.setBounds(9, 123, 488, 20);
 		contentPane.add(cbExemplares);
 		//
 		// Adicionando os exemplares na combobox
@@ -104,10 +110,12 @@ public class JanelaEmprestimo extends JFrame implements IViewerEmprestimo{
 		
 		
 		JLabel lblExemplar = new JLabel("Exemplar:");
-		lblExemplar.setBounds(10, 117, 100, 14);
+		lblExemplar.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblExemplar.setBounds(10, 109, 100, 14);
 		contentPane.add(lblExemplar);
 		
 		JLabel lblDataDevPrevista = new JLabel("Data de Devolu\u00E7\u00E3o Prevista:");
+		lblDataDevPrevista.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblDataDevPrevista.setBounds(9, 156, 193, 14);
 		contentPane.add(lblDataDevPrevista);
 		
@@ -118,12 +126,13 @@ public class JanelaEmprestimo extends JFrame implements IViewerEmprestimo{
 		contentPane.add(tfDataDevPrev);
 		
 		JLabel lblFuncionario = new JLabel("Funcion\u00E1rio:");
-		lblFuncionario.setBounds(10, 191, 100, 14);
+		lblFuncionario.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblFuncionario.setBounds(10, 204, 100, 14);
 		contentPane.add(lblFuncionario);
 		
 		cbFuncionarios = new JComboBox();
 		cbFuncionarios.setForeground(Color.BLUE);
-		cbFuncionarios.setBounds(9, 205, 488, 20);
+		cbFuncionarios.setBounds(9, 218, 488, 20);
 		contentPane.add(cbFuncionarios);
 		//
 		// Adicionando os exemplares na combobox
@@ -134,31 +143,36 @@ public class JanelaEmprestimo extends JFrame implements IViewerEmprestimo{
 		
 		
 		JLabel lblDataDevEfetiva = new JLabel("Data de Devolu\u00E7\u00E3o Efetiva:");
-		lblDataDevEfetiva.setBounds(9, 227, 169, 14);
+		lblDataDevEfetiva.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblDataDevEfetiva.setBounds(9, 251, 228, 14);
 		contentPane.add(lblDataDevEfetiva);
 		
 		tfDataDevEfetiva = new JTextField();
 		tfDataDevEfetiva.setForeground(Color.BLUE);
 		tfDataDevEfetiva.setColumns(10);
-		tfDataDevEfetiva.setBounds(9, 242, 86, 20);
+		tfDataDevEfetiva.setBounds(9, 266, 86, 20);
 		contentPane.add(tfDataDevEfetiva);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\tick_24.png"));
+		btnOk.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				executarOk();
 			}
 		});
-		btnOk.setBounds(94, 271, 143, 23);
+		btnOk.setBounds(93, 313, 150, 40);
 		contentPane.add(btnOk);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\stop24_h.png"));
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				executarCancelar();
 			}
 		});
-		btnCancelar.setBounds(277, 271, 154, 23);
+		btnCancelar.setBounds(276, 313, 150, 40);
 		contentPane.add(btnCancelar);
 		
 		this.setVisible(true);

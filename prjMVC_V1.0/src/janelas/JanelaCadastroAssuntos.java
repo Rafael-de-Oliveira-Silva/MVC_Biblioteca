@@ -18,6 +18,7 @@ import javax.swing.table.TableModel;
 
 import controle.ICtrlManterAssuntos;
 import controle.ITabelavel;
+import java.awt.Font;
 
 public class JanelaCadastroAssuntos extends JFrame implements IViewerCadastroAssuntos{
 	
@@ -33,17 +34,18 @@ public class JanelaCadastroAssuntos extends JFrame implements IViewerCadastroAss
 	 * Create the frame.
 	 */
 	public JanelaCadastroAssuntos(ICtrlManterAssuntos ctAssunto) {
+		setResizable(false);
 		setTitle("Assuntos");
 		this.ctrl = ctAssunto;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 309);
+		setBounds(100, 100, 665, 331);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 434, 233);
+		scrollPane.setBounds(0, 0, 659, 233);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -56,45 +58,49 @@ public class JanelaCadastroAssuntos extends JFrame implements IViewerCadastroAss
 				"DESCRI\u00C7\u00C3O", "N\u00BA OBRAS"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(364);
-		table.getColumnModel().getColumn(1).setPreferredWidth(70);
+		table.getColumnModel().getColumn(0).setPreferredWidth(500);
+		table.getColumnModel().getColumn(1).setPreferredWidth(200);
 		
 		scrollPane.setViewportView(table);
 		
 		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnIncluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarIncluir();
 			}
 		});
-		btnIncluir.setBounds(27, 239, 89, 23);
+		btnIncluir.setBounds(10, 246, 150, 40);
 		contentPane.add(btnIncluir);
 		
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarExcluir();
 			}
 		});
-		btnExcluir.setBounds(126, 239, 89, 23);
+		btnExcluir.setBounds(172, 246, 150, 40);
 		contentPane.add(btnExcluir);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarAlterar();
 			}
 		});
-		btnAlterar.setBounds(225, 239, 89, 23);
+		btnAlterar.setBounds(334, 246, 150, 40);
 		contentPane.add(btnAlterar);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarTerminar();
 			}
 		});
-		btnSair.setBounds(324, 239, 89, 23);
+		btnSair.setBounds(496, 246, 150, 40);
 		contentPane.add(btnSair);
 				
 		this.setVisible(true);	

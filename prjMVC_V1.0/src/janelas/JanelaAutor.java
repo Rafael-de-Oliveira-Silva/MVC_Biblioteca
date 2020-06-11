@@ -14,6 +14,8 @@ import javax.swing.border.EmptyBorder;
 
 import controle.ICtrlManterAutores;
 import dados.DadosException;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class JanelaAutor extends JFrame implements IViewerAutor{
 
@@ -35,16 +37,18 @@ public class JanelaAutor extends JFrame implements IViewerAutor{
 	 * Create the frame.
 	 */
 	public JanelaAutor(ICtrlManterAutores ctAutor) {
+		setResizable(false);
 		this.ctrl = ctAutor;
 		setTitle("Autor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 393, 146);
+		setBounds(100, 100, 489, 173);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNome.setBounds(10, 11, 155, 14);
 		contentPane.add(lblNome);
 		
@@ -55,21 +59,25 @@ public class JanelaAutor extends JFrame implements IViewerAutor{
 		tfNome.setColumns(10);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnOk.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\tick_24.png"));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarOk();
 			}
 		});
-		btnOk.setBounds(22, 68, 143, 23);
+		btnOk.setBounds(66, 85, 150, 40);
 		contentPane.add(btnOk);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnCancelar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\stop24_h.png"));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarCancelar();
 			}
 		});
-		btnCancelar.setBounds(205, 68, 154, 23);
+		btnCancelar.setBounds(279, 85, 150, 40);
 		contentPane.add(btnCancelar);
 		
 		this.setVisible(true);

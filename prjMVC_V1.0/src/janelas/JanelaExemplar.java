@@ -16,6 +16,8 @@ import javax.swing.border.EmptyBorder;
 
 import controle.ICtrlManterExemplares;
 import dados.DadosException;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class JanelaExemplar extends JFrame implements IViewerExemplar{
 
@@ -39,16 +41,18 @@ public class JanelaExemplar extends JFrame implements IViewerExemplar{
 	 * Create the frame.
 	 */
 	public JanelaExemplar(ICtrlManterExemplares ctExemplar, Object[] obras) {
+		setResizable(false);
 		setTitle("Exemplar");
 		this.ctrl = ctExemplar;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 441, 231);
+		setBounds(100, 100, 441, 265);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNumero = new JLabel("N\u00FAmero:");
+		lblNumero.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNumero.setBounds(10, 11, 131, 14);
 		contentPane.add(lblNumero);
 		
@@ -59,6 +63,7 @@ public class JanelaExemplar extends JFrame implements IViewerExemplar{
 		tfNumero.setColumns(10);
 		
 		JLabel lblSituacao = new JLabel("Situa\u00E7\u00E3o:");
+		lblSituacao.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblSituacao.setBounds(10, 56, 120, 14);
 		contentPane.add(lblSituacao);
 		
@@ -79,25 +84,30 @@ public class JanelaExemplar extends JFrame implements IViewerExemplar{
 				cbObras.addItem(o);
 		
 		JLabel lblObra = new JLabel("Obra:");
+		lblObra.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblObra.setBounds(10, 103, 46, 14);
 		contentPane.add(lblObra);
 		
 		JButton btnOk = new JButton("OK");
+		btnOk.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\tick_24.png"));
+		btnOk.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarOk();
 			}
 		});
-		btnOk.setBounds(47, 159, 143, 23);
+		btnOk.setBounds(47, 159, 143, 42);
 		contentPane.add(btnOk);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\stop24_h.png"));
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarCancelar();
 			}
 		});
-		btnCancelar.setBounds(230, 159, 154, 23);
+		btnCancelar.setBounds(230, 159, 154, 42);
 		contentPane.add(btnCancelar);
 		
 		this.setVisible(true);

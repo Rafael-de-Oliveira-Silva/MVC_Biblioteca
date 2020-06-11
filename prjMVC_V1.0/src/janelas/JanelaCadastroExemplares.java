@@ -15,6 +15,8 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class JanelaCadastroExemplares extends JFrame implements IViewerCadastroExemplares{
 
@@ -30,17 +32,18 @@ public class JanelaCadastroExemplares extends JFrame implements IViewerCadastroE
 	 * Create the frame.
 	 */
 	public JanelaCadastroExemplares(ICtrlManterExemplares ctExemplar) {
+		setResizable(false);
 		setTitle("Exemplares");
 		this.ctrl = ctExemplar;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 728, 329);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 434, 225);
+		scrollPane.setBounds(0, 0, 722, 225);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -56,42 +59,51 @@ public class JanelaCadastroExemplares extends JFrame implements IViewerCadastroE
 		table.getColumnModel().getColumn(0).setPreferredWidth(70);
 		table.getColumnModel().getColumn(1).setPreferredWidth(440);
 		table.getColumnModel().getColumn(2).setPreferredWidth(100);
+		table.getColumnModel().getColumn(2).setMinWidth(203);
 		scrollPane.setViewportView(table);
 		
 		JButton btnIncluir = new JButton("Incluir");
+		btnIncluir.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\floppy_drive_24_h.png"));
+		btnIncluir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnIncluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarIncluir();
 			}
 		});
-		btnIncluir.setBounds(26, 232, 89, 23);
+		btnIncluir.setBounds(26, 238, 150, 40);
 		contentPane.add(btnIncluir);
 		
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\recycle_bin_24.png"));
+		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarExcluir();
 			}
 		});
-		btnExcluir.setBounds(125, 232, 89, 23);
+		btnExcluir.setBounds(205, 238, 150, 40);
 		contentPane.add(btnExcluir);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\edit24_h.png"));
+		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarAlterar();
 			}
 		});
-		btnAlterar.setBounds(224, 232, 89, 23);
+		btnAlterar.setBounds(380, 238, 150, 40);
 		contentPane.add(btnAlterar);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.setIcon(new ImageIcon("C:\\Projetos Git\\MVC_Biblioteca\\prjMVC_V1.0\\src\\img\\exit24.png"));
+		btnSair.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				executarTerminar();
 			}
 		});
-		btnSair.setBounds(323, 232, 89, 23);
+		btnSair.setBounds(542, 238, 150, 40);
 		contentPane.add(btnSair);
 		
 		this.setVisible(true);
